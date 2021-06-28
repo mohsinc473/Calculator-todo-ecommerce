@@ -20,15 +20,15 @@ class _TodoState extends State<Todo> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(
+              top: 10.0, right: 8.0, bottom: 10.0, left: 8.0),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ConstrainedBox(
-                    constraints: BoxConstraints.tightFor(width: 320),
+                    constraints: BoxConstraints.tightFor(width: 290),
                     child: TextField(
                       controller: textController,
                       onChanged: (value) {
@@ -62,13 +62,20 @@ class _TodoState extends State<Todo> {
                 ],
               ),
               ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: todos.length,
                   itemBuilder: (context, index) {
                     return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange[300],
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(color: Colors.blueGrey, blurRadius: 10.0),
+                        ],
+                      ),
                       height: 50,
-                      color: Colors.orange[300],
-                      margin: EdgeInsets.only(top: 5),
+                      margin: EdgeInsets.only(top: 15),
                       child: ListTile(
                         title: Text(
                           "${todos[index]}",

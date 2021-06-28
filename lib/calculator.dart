@@ -24,7 +24,7 @@ class _CalculatorState extends State<Calculator> {
         ),
         style: OutlinedButton.styleFrom(
             padding: EdgeInsets.all(10.0),
-            minimumSize: Size(100.0, 100.0),
+            minimumSize: Size(80.0, 90.0),
             primary: Colors.teal[900],
             side: BorderSide(color: Colors.blueGrey)),
       );
@@ -50,8 +50,9 @@ class _CalculatorState extends State<Calculator> {
         child: Column(
           children: [
             TextField(
-              style: TextStyle(fontSize: 20.0, height: 5),
-              // autofocus: true,
+              textAlign: TextAlign.right,
+              textAlignVertical: TextAlignVertical.center,
+              style: TextStyle(fontSize: 20.0, height: 3),
               controller: textController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -72,7 +73,7 @@ class _CalculatorState extends State<Calculator> {
                     ),
                     style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.all(10.0),
-                        minimumSize: Size(100.0, 100.0),
+                        minimumSize: Size(80.0, 90.0),
                         primary: Colors.deepOrange[900],
                         side: BorderSide(color: Colors.blueGrey)),
                   ),
@@ -90,7 +91,7 @@ class _CalculatorState extends State<Calculator> {
                     ),
                     style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.all(10.0),
-                        minimumSize: Size(100.0, 100.0),
+                        minimumSize: Size(80.0, 90.0),
                         primary: Colors.deepOrange[900],
                         side: BorderSide(color: Colors.blueGrey)),
                   )
@@ -138,7 +139,7 @@ class _CalculatorState extends State<Calculator> {
                   ),
                   style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.all(10.0),
-                      minimumSize: Size(291.0, 100.0),
+                      minimumSize: Size(250.0, 90.0),
                       primary: Colors.cyan[800],
                       side: BorderSide(color: Colors.blueGrey)),
                 ),

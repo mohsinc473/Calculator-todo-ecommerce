@@ -13,7 +13,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("E-Commerce"),
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey[600],
       ),
       drawer: Drawer(
         child: ListView(
@@ -38,7 +40,7 @@ class _HomeState extends State<Home> {
                   child: Text("Calculator", style: TextStyle(fontSize: 20)),
                   style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.all(10.0),
-                      minimumSize: Size(300.0, 50.0),
+                      minimumSize: Size(280.0, 60.0),
                       primary: Colors.teal[900],
                       side: BorderSide(color: Colors.green)),
                 ),
@@ -53,7 +55,7 @@ class _HomeState extends State<Home> {
                   child: Text("Todo List", style: TextStyle(fontSize: 20)),
                   style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.all(10.0),
-                      minimumSize: Size(300.0, 50.0),
+                      minimumSize: Size(280.0, 60.0),
                       primary: Colors.lime[800],
                       side: BorderSide(color: Colors.lime)),
                 ),
@@ -86,9 +88,9 @@ Widget gridView() {
           "https://cdn.idropnews.com/wp-content/uploads/2020/10/29153326/iPhone-12-Pro-Max-Giveaway.jpg"
     },
     {
-      "name": "Samsung Note 20 Ultra",
+      "name": "Red Komodo",
       "img":
-          "https://s.yimg.com/uu/api/res/1.2/BEiJ8CDO8e_7eZ9.FKMg4w--~B/aD0xOTY5O3c9MzUwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2020-08/1499e9b0-e117-11ea-b66f-7c58e908215f.cf.jpg"
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtQR4sFvqkzrN____LttviC8IL3e3VQSbEXQ&usqp=CAU"
     },
     {
       "name": "MacBook Pro",
@@ -98,11 +100,6 @@ Widget gridView() {
       "name": "M1 iMac",
       "img":
           "https://9to5mac.com/wp-content/uploads/sites/6/2021/04/imac-colors-2.jpeg?quality=82&strip=all"
-    },
-    {
-      "name": "Red Komodo",
-      "img":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtQR4sFvqkzrN____LttviC8IL3e3VQSbEXQ&usqp=CAU"
     },
     {
       "name": "Falcon 9",
@@ -119,14 +116,22 @@ Widget gridView() {
       "img":
           "https://www.cnet.com/a/img/JczEbSRaK5FhKYANExUbBidsQMk=/940x0/2020/02/09/9574fe2c-4162-45af-82c7-d25be9f10b62/15-mac-pro-display-xdr.jpg"
     },
+    {
+      "name": "Samsung Note 20 Ultra",
+      "img":
+          "https://s.yimg.com/uu/api/res/1.2/BEiJ8CDO8e_7eZ9.FKMg4w--~B/aD0xOTY5O3c9MzUwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2020-08/1499e9b0-e117-11ea-b66f-7c58e908215f.cf.jpg"
+    },
   ];
   return GridView.count(
+    physics: NeverScrollableScrollPhysics(),
     shrinkWrap: true,
     crossAxisCount: 2,
     crossAxisSpacing: 10,
     mainAxisSpacing: 10,
     children: List.generate(products.length, (index) {
       return Container(
+        width: 200.0,
+        height: 100.0,
         decoration: BoxDecoration(
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(10),
@@ -135,23 +140,19 @@ Widget gridView() {
           ],
         ),
         margin: EdgeInsets.all(10),
-        height: 300,
-        width: 200,
-
-        // color: Colors.yellow,
         child: Column(
           children: [
             Image.network('${products[index]["img"]}',
                 width: 200, height: 100, fit: BoxFit.cover),
             SizedBox(
-              height: 10,
+              height: 3,
             ),
             Text(
               '${products[index]["name"]}',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 10,
+              height: 3,
             ),
             Row(
               children: [
@@ -222,7 +223,6 @@ Widget cards() {
   return Container(
     margin: EdgeInsets.only(top: 20),
     alignment: Alignment.center,
-    // color: Colors.red,
     height: 70,
     child: ListView.builder(
       scrollDirection: Axis.horizontal,
